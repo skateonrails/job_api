@@ -1,4 +1,4 @@
-class JobsController < ApplicationController
+class JobsController < AuthenticatedController
   # GET /jobs
   def index
     render json: jobs

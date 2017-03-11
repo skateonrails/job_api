@@ -20,6 +20,10 @@ RSpec.describe JobsController, type: :controller do
 
   let(:job) { Job.create! valid_attributes }
 
+  before do
+    controller_http_login
+  end
+
   describe "GET #index" do
     it "returns a success response" do
       job
