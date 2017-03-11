@@ -29,14 +29,24 @@ RSpec.describe JobsController, type: :controller do
   end
 
   describe "GET #show" do
-    it "returns a success response" do
-      get :show, params: {id: job.id}, session: valid_session
-      expect(response).to be_success
+    context 'with valid id' do
+      it "returns a success response" do
+        get :show, params: {id: job.id}, session: valid_session
+        expect(response).to be_success
+      end
+
+      it "renders a JSON response with the job" do
+        get :show, params: {id: job.id}, session: valid_session
+        expect(response.content_type).to eq('application/json')
+      end
     end
 
-    it "renders a JSON response with the job" do
-      get :show, params: {id: job.id}, session: valid_session
-      expect(response.content_type).to eq('application/json')
+    context 'with invalid id' do
+      it "returns a not_found response" do
+        get :show, params: {id: 1}, session: valid_session
+        expect(response).to have_http_status(:not_found)
+        expect(response.content_type).to eq('application/json')
+      end
     end
   end
 
