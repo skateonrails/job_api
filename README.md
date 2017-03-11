@@ -1,2 +1,2 @@
-# job_api
-API (frontend) to list jobs
+# JobsAPI
+This project is responsible to show info about jobs
