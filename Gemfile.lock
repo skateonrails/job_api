@@ -71,6 +71,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.5)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.2)
     activejob (5.0.2)
       activesupport (= 5.0.2)
       globalid (>= 0.3.6)
@@ -96,6 +101,8 @@ GEM
     bunny (2.6.4)
       amq-protocol (>= 2.0.1)
     byebug (9.0.6)
+    case_transform (0.2)
+      activesupport
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     codeclimate-engine-rb (0.4.0)
@@ -114,6 +121,7 @@ GEM
     i18n (0.8.1)
     ice_nine (0.11.2)
     iniparse (1.4.2)
+    jsonapi-renderer (0.1.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -219,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   byebug
   listen (~> 3.0.5)
   overcommit
