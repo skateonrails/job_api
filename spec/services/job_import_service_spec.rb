@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe JobImportService do
-  let(:params) { {partner_id: 1, title: 'Created Now', category_id: 1, expires_at: 3.days.from_now} }
+  let(:category) { Category.create! }
+  let(:params) { {partner_id: 1, title: 'Created Now', category_id: category.id, expires_at: 3.days.from_now} }
   let(:json_message) { params.to_json }
 
   describe '#import' do

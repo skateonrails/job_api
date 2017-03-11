@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe JobsController, type: :controller do
-
+  let(:category) { Category.create! }
   # This should return the minimal set of attributes required to create a valid
   # Job. As you add validations to Job, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { partner_id: 1, title: 'Created Now', category_id: 1, expires_at: 3.days.from_now }
+    { partner_id: 1, title: 'Created Now', category_id: category.id, expires_at: 3.days.from_now }
   }
 
   let(:invalid_attributes) {

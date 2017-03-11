@@ -5,7 +5,11 @@ class JobImportWorker
   from_queue ENV['QUEUE_NAME'] || QUEUE_NAME
 
   def work(json_message)
-    JobImportService.import(json_message)
-    ack!
+    begin
+      JobImportService.import(json_message)
+      ack!
+    rescue ActiveRecord::RecordNotUnique
+      requeue!
+    end
   end
 end
