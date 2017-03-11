@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311124445) do
+ActiveRecord::Schema.define(version: 20170311150129) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "jobs", force: :cascade do |t|
     t.integer  "partner_id"
@@ -20,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170311124445) do
     t.string   "state",       default: "draft"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.index ["partner_id"], name: "index_jobs_on_partner_id", unique: true, using: :btree
   end
 
 end
