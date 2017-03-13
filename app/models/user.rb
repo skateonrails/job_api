@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   before_create :set_api_key, unless: :api_key?
 
+  validates :api_key, uniqueness: true
+
   def api_key?
     api_key.present?
   end
