@@ -12,6 +12,7 @@ class JobsController < AuthenticatedController
   # POST /jobs
   def create
     @job = Job.new(job_params)
+    find_or_create_category
 
     if @job.save
       render json: @job, status: :created, location: @job
@@ -38,6 +39,10 @@ class JobsController < AuthenticatedController
   end
 
   def job_params
-    params.require(:job).permit(:partner_id, :category_id, :title, :expires_at)
+    params.require(:job).permit(:partner_id, :category_id, :title, :expires_at, :state)
+  end
+
+  def find_or_create_category
+    Category.find_or_create_by!(id: job_params[:category_id])
   end
 end
