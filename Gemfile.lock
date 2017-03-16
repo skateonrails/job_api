@@ -45,6 +45,16 @@ GIT
   specs:
     rspec-support (3.6.0.beta2)
 
+GIT
+  remote: https://github.com/rspec/rspec.git
+  revision: bb618dac1400efa55ea76f8fd2875fc58741936b
+  branch: master
+  specs:
+    rspec (3.6.0.beta2)
+      rspec-core (= 3.6.0.beta2)
+      rspec-expectations (= 3.6.0.beta2)
+      rspec-mocks (= 3.6.0.beta2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -238,6 +248,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.2)
   reek
+  rspec!
   rspec-core!
   rspec-expectations!
   rspec-mocks!
