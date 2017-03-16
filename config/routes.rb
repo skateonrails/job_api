@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories, only: :show
+  get 'category/:id' => 'categories#show'
   resources :jobs, only: [:index, :show, :create] do
     post :activate, on: :member
   end
